@@ -2,6 +2,10 @@
 
 A simple lb-phone application to manage the native [qbx_core](https://github.com/qbox-project/qbx_core) multijob. It does not manage multigang, if you wish to do that then you will need to modify the script yourself.
 
+# Preview
+![image](https://github.com/solareon/slrn_multijob/assets/769465/eba40145-4255-4993-9527-945ff4eaec0c)
+
+
 # Support
 - No support is provided but you can ask questions in the lb-phone or qbox discord and someone may chime in.
 
