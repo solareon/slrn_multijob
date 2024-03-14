@@ -1,0 +1,208 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    visibility: hidden;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    padding: 52px 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.light {
+    background-color: white;
+    color: black;
+}
+
+.app-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 1rem;
+}
+
+.app-header-name {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.app-content {
+    width: 100%;
+    height: 100%;
+}
+
+#jobs {
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+    gap: 1rem;
+    overflow: auto;
+}
+
+.job-card {
+    width: 100%;
+    background-color: rgb(22, 22, 22);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.job-card-light {
+    width: 100%;
+    background-color: rgb(202, 202, 202);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.job-name {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.job-grade {
+    font-size: 20px;
+    margin-bottom: 0.5rem;
+}
+
+.job-status {
+    margin-top: 1.5rem;
+    background-color: rgb(40, 40, 40);
+    padding: 0.8rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+
+.job-status-light {
+    margin-top: 1.5rem;
+    background-color: rgb(170, 170, 170);
+    padding: 0.8rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+
+.job-remove {
+    margin-top: 0.5rem;
+    background-color: rgb(40, 40, 40);
+    padding: 0.8rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+
+.job-remove-light {
+    margin-top: 0.5rem;
+    background-color: rgb(170, 170, 170);
+    padding: 0.8rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+
+#activeJob-card {
+    width: 100%;
+    background-color: rgb(55, 55, 55);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.activeJob-card-light {
+    width: 100%;
+    background-color: rgb(202, 202, 202);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.activeJob-name {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.activeJob-grade {
+    font-size: 20px;
+    margin-bottom: 0.5rem;
+}
+
+.activeJob-status {
+    margin-top: 1.5rem;
+    background-color: rgb(40, 40, 40);
+    padding: 0.8rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+
+.activeJob-status-light {
+    margin-top: 1.5rem;
+    background-color: rgb(170, 170, 170);
+    padding: 0.8rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+
+.activeJob-remove {
+    margin-top: 0.5rem;
+    background-color: rgb(40, 40, 40);
+    padding: 0.8rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+
+.activeJob-remove-light {
+    margin-top: 0.5rem;
+    background-color: rgb(170, 170, 170);
+    padding: 0.8rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+
+#phone-wrapper {
+    display: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 29rem;
+    height: 58.5rem;
+}
