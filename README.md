@@ -12,6 +12,7 @@ A simple lb-phone application to manage the native [qbx_core](https://github.com
 # Credits
 - [Randolio](https://github.com/Randolio/randol_multijob) for the multijob natives
 - [LB-Phone](https://github.com/lbphone/lb-phone-app-template) for the template apps
+- [FuZZED105](https://github.com/FuZZED105/fzd_multijob) for the original app
 
 # Dependencies
 - [qbx_core](https://github.com/qbox-project/qbx_core) 1.7.0 or later
