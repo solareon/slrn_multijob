@@ -10,6 +10,7 @@ local function AddApp()
         identifier = 'slrn_multijob',
         name = 'Employment',
         description = 'Employment application',
+        defaultApp = true,
         developer = 'solareon.',
         ui = 'slrn_multijob/ui/index.html',
         icon = 'https://cfx-nui-slrn_multijob/ui/assets/icon.png',
