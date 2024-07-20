@@ -1,5 +1,13 @@
 name: Lint
-on: [push, pull_request_target]
+on:
+  push:
+    paths:
+      - '*.lua'
+      - '.github/workflows/lint.yml'
+  pull_request_target:
+    paths:
+      - '*.lua'
+      - '.github/workflows/lint.yml'
 jobs:
     lint:
         name: Lint Resource
@@ -15,7 +23,6 @@ jobs:
                   args: "-t --formatter JUnit"
                   extra_libs: ox_lib+mysql+qblocales+qbox+qbox_playerdata+qbox_lib
             - name: Generate Lint Report
-              if: always()
               uses: mikepenz/action-junit-report@v4
               with:
                   report_paths: "**/junit.xml"

@@ -1,23 +1,41 @@
 # SLRN Multijob - App for LB-Phone
+![Lint](https://github.com/solareon/slrn_multijob/actions/workflows/lint.yml/badge.svg)
+![CI](https://github.com/solareon/slrn_multijob/actions/workflows/ci.yml/badge.svg)
 
-A simple lb-phone application to manage the native [qbx_core](https://github.com/qbox-project/qbx_core) multijob. It does not manage multigang, if you wish to do that then you will need to modify the script yourself.
+A simple lb-phone application to manage multijob systems. It does not manage multigang, if you wish to do that then you will need to modify the script yourself.
 
-# If you are looking for the [qbcore version that is located here](https://github.com/solareon/slrn_qbmultijob)
+**QBOX/QB supported with bridge**
+ESX/ND/OX support soon
 
 # Preview
-![image](https://github.com/solareon/slrn_multijob/assets/769465/eba40145-4255-4993-9527-945ff4eaec0c)
+![image](.github/assets/slrn_multijob.png)
 
+# Installation
+Download the [release version](https://github.com/solareon/slrn_groups/releases) and copy to your server.
+
+# Customizing and building from source
+Download the latest commit and navigate to the ui folder
+```bash copy
+pnpm i
+```
+Then to preview the UI. You can also switch the UI path in the app registration (switch the commented lines) and then the game will display the preview running from vite.
+```bash copy
+pnpm start
+```
+Or to build for production
+```bash copy
+pnpm build
+```
 
 # Support
 - [Discord](https://discord.gg/TZFBBHvG6E)
 
 # Credits
-- [Randolio](https://github.com/Randolio/randol_multijob) for the multijob natives
+- [Randolio](https://github.com/Randolio/randol_multijob) for the multijob natives for qbox
 - [LB-Phone](https://github.com/lbphone/lb-phone-app-template) for the template apps
 - [FuZZED105](https://github.com/FuZZED105/fzd_multijob) for the original app
 
 # Dependencies
-- [qbx_core](https://github.com/qbox-project/qbx_core) 1.7.0 or later
 - [lb-phone](https://lbphone.com/)
 - [ox_lib](https://github.com/overextended/ox_lib)
 
