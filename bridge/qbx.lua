@@ -64,6 +64,30 @@ else
         return exports.qbx_core:Notify(message, type)
     end
 
+    function GetJobs()
+        local playerData = GetPlayerData()
+        local jobMenu = {}
+        for job, grade in pairs(playerData.jobs) do
+            local jobData = JOBS[job]
+            jobMenu[#jobMenu + 1] = {
+                currentJob = playerData.job.name == job,
+                title = jobData.label,
+                grade = jobData.grades[grade],
+                jobName = job,
+                duty = playerData.job.name == job and playerData.job.onduty or false,
+            }
+        end
+        return jobMenu
+    end
+
+    function ToggleDuty()
+        return TriggerServerEvent('QBCore:ToggleDuty')
+    end
+
+    RegisterNetEvent('QBCore:Client:OnJobUpdate', function()
+        exports["lb-phone"]:SendCustomAppMessage('slrn_multijob', { action = 'update-jobs' })
+    end)
+
     AddEventHandler('qbx_core:client:onJobUpdate', function()
         JOBS = GetJobs()
     end)

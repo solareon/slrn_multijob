@@ -37,45 +37,25 @@ CreateThread(function()
     end)
 end)
 
+RegisterNUICallback('getPlayerData', function(_, cb)
+    cb(GetPlayerData())
+end)
+
 RegisterNUICallback('getJobs', function(_, cb)
-    local PlayerData = QBX.PlayerData
-    local jobMenu = {}
-    for job, grade in pairs(PlayerData.jobs) do
-        local isDisabled = PlayerData.job.name == job
-        local jobData = sharedJobs[job]
-        jobMenu[#jobMenu + 1] = {
-            title = jobData.label,
-            description = ('Grade: %s [%s] <br /> Salary: $%s'):format(jobData.grades[grade].name, grade, jobData.grades[grade].payment),
-            disabled = isDisabled,
-            jobName = job,
-            duty = isDisabled and PlayerData.job.onduty or false,
-        }
-    end
-    cb(jobMenu)
+    cb(GetJobs())
 end)
 
 RegisterNUICallback('toggleDuty', function(_, cb)
-    TriggerServerEvent('QBCore:ToggleDuty')
-    cb(true)
-    Wait(500)
-    exports["lb-phone"]:SendCustomAppMessage('slrn_multijob', { action = 'update-jobs' })
+    ToggleDuty()
+    cb({})
 end)
 
 RegisterNUICallback('removeJob', function(job, cb)
     TriggerServerEvent('slrn_multijob:server:deleteJob', job)
-    lib.callback('slrn_multijob:server:deleteJob', false, function()
-        cb(true)
-        exports["lb-phone"]:SendCustomAppMessage('slrn_multijob', { action = 'update-jobs' })
-    end, job)
+    cb({})
 end)
 
 RegisterNUICallback('changeJob', function(job, cb)
-    lib.callback('slrn_multijob:server:changeJob', false, function()
-        cb(true)
-        exports["lb-phone"]:SendCustomAppMessage('slrn_multijob', { action = 'update-jobs' })
-    end, job)
-end)
-
-RegisterNetEvent('QBCore:Client:OnJobUpdate', function()
-    exports["lb-phone"]:SendCustomAppMessage('slrn_multijob', { action = 'update-jobs' })
+    TriggerServerEvent('slrn_multijob:server:changeJob', job)
+    cb({})
 end)

@@ -18,8 +18,8 @@ RegisterNetEvent('slrn_multijob:server:changeJob', function(job)
     end
 
     if not CanSetJob(src, job) then return end
-
-    SetPlayerJob(src, job)
+    local setJob = GetPlayerJob(src)
+    SetPlayerJob(src, setJob)
     Notify(src, ('Your job is now: %s'):format(JOBS[job].label))
     SetPlayerDuty(false)
     return true
