@@ -55,3 +55,17 @@ lib.callback.register('slrn_multijob:server:deleteJob', function(source, job)
     exports.qbx_core:Notify(source, ('You deleted %s job from your menu.'):format(jobInfo.label))
     return true
 end)
+
+
+
+CreateThread(function()
+    if GetConvar('qbx:setjob_replaces', 'true') == 'true' then
+        lib.print.warn('The qbx:setjob_replaces^7 convar is set to true, this may cause issues with this resource. It is recommended to set it to false.')
+    end
+    if GetConvarInt('qbx:max_jobs_per_player', 1) == 1 then
+        while true do
+            lib.print.error('The qbx:max_jobs_per_player convar is set to 1, please increase it in your server.cfg to use this resource.')
+            Wait(100)
+        end
+    end
+end)
