@@ -31,6 +31,10 @@ end)
 
 RegisterNUICallback('getJobs', function(_, cb)
     local PlayerData = QBX.PlayerData
+    if not PlayerData.jobs or next(PlayerData.jobs) == nil then
+        cb({})
+        return
+    end
     local jobMenu = {}
     for job, grade in pairs(PlayerData.jobs) do
         local isDisabled = PlayerData.job.name == job
