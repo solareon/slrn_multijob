@@ -9,7 +9,7 @@ A simple lb-phone application to manage the native [qbx_core](https://github.com
 
 
 # Support
-- [Discord](https://discord.gg/TZFBBHvG6E)
+- [Discord](https://slrn.dev/support)
 
 # Credits
 - [Randolio](https://github.com/Randolio/randol_multijob) for the multijob natives
