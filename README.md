@@ -23,7 +23,7 @@ A simple lb-phone application to manage the native [qbx_core](https://github.com
 
 # Copyright
 
-Copyright © 2024 Solareon <https://github.com/solareon>
+Copyright © 2026 Solareon <https://github.com/solareon>
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
