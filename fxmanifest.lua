@@ -25,7 +25,5 @@ files {
     'ui/**/*'
 }
 
-ui_page 'ui/index.html'
-
 dependency 'qbx_core'
 dependency 'lb-phone'
