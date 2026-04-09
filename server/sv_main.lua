@@ -1,5 +1,3 @@
-lib.versionCheck('solareon/slrn_multijob')
-
 if not lib.checkDependency('qbx_core', '1.7.0') then error() end
 
 if GetCurrentResourceName() ~= 'slrn_multijob' then
@@ -59,6 +57,36 @@ end)
 
 
 CreateThread(function()
+    PerformHttpRequest("https://version.red40.dev/version/slrn_multijob", function(statusCode, response, headers)
+        if statusCode ~= 200 then
+            lib.print.warn("[Version Check]: Failed to fetch latest version from API.")
+            return
+        end
+
+        local jsonData = json.decode(response)
+        if not jsonData or not jsonData.latestVersion then
+            lib.print.warn("[Version Check]: Invalid API response.")
+            return
+        end
+
+        local latestVersion = jsonData.latestVersion
+        local currentVersion = 'v' .. GetResourceMetadata('slrn_multijob', "version", 0)
+
+        if not currentVersion then
+            lib.print.warn("[Version Check]: No version metadata found in fxmanifest.")
+            return
+        end
+
+        if currentVersion ~= latestVersion then
+            lib.print.warn(("[Version Check]: Outdated! Installed: %s, Latest: %s — Download the latest from GitHub."):format(currentVersion, latestVersion))
+			if jsonData.changeLog ~= '' then
+                lib.print.info('[Version Check] Change Log:\n' .. jsonData.changeLog)
+			end
+        else
+            lib.print.info(("[Version Check]: You are up to date! Version: %s"):format(currentVersion))
+        end
+    end, "GET", "", {})
+
     if GetConvar('qbx:setjob_replaces', 'true') == 'true' then
         lib.print.warn('The qbx:setjob_replaces^7 convar is set to true, this may cause issues with this resource. It is recommended to set it to false.')
     end
