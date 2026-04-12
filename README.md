@@ -2,7 +2,11 @@
 
 A simple lb-phone application to manage the native [qbx_core](https://github.com/qbox-project/qbx_core) multijob. It does not manage multigang, if you wish to do that then you will need to modify the script yourself.
 
-# If you are looking for the [qbcore version that is located here](https://github.com/solareon/slrn_qbmultijob)
+# [Red40 Development](https://red40.dev/scripts)
+Like this resource and want to support further development? Checkout my store [Red40 Development](https://red40.dev/scripts)
+
+# [QB-Core verison](https://github.com/solareon/slrn_qbmultijob)
+THe QB-Core version is currently here but will be merged eventually
 
 # Preview
 ![image](https://github.com/solareon/slrn_multijob/assets/769465/eba40145-4255-4993-9527-945ff4eaec0c)
