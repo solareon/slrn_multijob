@@ -12,8 +12,9 @@ local function AddApp()
         description = 'Employment application',
         defaultApp = true,
         developer = 'solareon.',
-        ui = 'slrn_multijob/ui/index.html',
-        icon = 'https://cfx-nui-slrn_multijob/ui/assets/icon.png',
+        ui = 'slrn_multijob/web/build/index.html',
+        icon = 'https://cfx-nui-slrn_multijob/web/build/icon.png',
+        fixBlur = true,
     })
 
     if not added then
@@ -37,14 +38,17 @@ RegisterNUICallback('getJobs', function(_, cb)
     end
     local jobMenu = {}
     for job, grade in pairs(PlayerData.jobs) do
-        local isDisabled = PlayerData.job.name == job
+        local isActive = PlayerData.job.name == job
         local jobData = sharedJobs[job]
+        local gradeData = jobData.grades[grade]
         jobMenu[#jobMenu + 1] = {
             title = jobData.label,
-            description = ('Grade: %s [%s] <br /> Salary: $%s'):format(jobData.grades[grade].name, grade, jobData.grades[grade].payment),
-            disabled = isDisabled,
             jobName = job,
-            duty = isDisabled and PlayerData.job.onduty or false,
+            gradeName = gradeData.name,
+            gradeLevel = tonumber(grade) or 0,
+            salary = gradeData.payment,
+            active = isActive,
+            duty = isActive and PlayerData.job.onduty or false,
         }
     end
     cb(jobMenu)

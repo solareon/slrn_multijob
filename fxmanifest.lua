@@ -22,7 +22,7 @@ server_scripts {
 }
 
 files {
-    'ui/**/*'
+    'web/build/**/*'
 }
 
 dependency 'qbx_core'
