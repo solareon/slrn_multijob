@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    uses: Red40-Development/red40-public-workflows/.github/workflows/ci.yml@v1
+    with:
+      # Optional. Defaults to the repository root, Node 24, and pnpm 11.
+      working_directory: web
