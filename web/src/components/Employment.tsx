@@ -17,6 +17,7 @@ interface EmploymentProps {
   onDutyToggle: () => Promise<void>;
   onJobSelect: (job: Job) => Promise<void>;
   onJobRemove: (job: Job) => Promise<void>;
+  onDialogChange?: (open: boolean) => void;
 }
 
 function JobDetails({ job }: { job: Job }) {
@@ -41,6 +42,7 @@ export function Employment({
   onDutyToggle,
   onJobSelect,
   onJobRemove,
+  onDialogChange,
 }: EmploymentProps) {
   const [jobToRemove, setJobToRemove] = useState<Job | null>(null);
   const activeJob = useMemo(() => jobs.find((job) => job.active), [jobs]);
@@ -51,10 +53,15 @@ export function Employment({
 
   const actionPending = pendingAction !== null;
 
+  const chooseJobToRemove = (job: Job | null) => {
+    setJobToRemove(job);
+    onDialogChange?.(job !== null);
+  };
+
   const confirmRemove = async () => {
     if (!jobToRemove) return;
     await onJobRemove(jobToRemove);
-    setJobToRemove(null);
+    chooseJobToRemove(null);
   };
 
   return (
@@ -114,7 +121,7 @@ export function Employment({
                       aria-label={`Remove ${activeJob.title}`}
                       className="flex w-1/3 items-center justify-center rounded-2xl bg-background px-3 py-4 transition hover:scale-[1.02] hover:bg-danger hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-danger disabled:cursor-not-allowed disabled:opacity-50"
                       disabled={actionPending}
-                      onClick={() => setJobToRemove(activeJob)}
+                      onClick={() => chooseJobToRemove(activeJob)}
                       title={`Remove ${activeJob.title}`}
                       type="button"
                     >
@@ -161,7 +168,7 @@ export function Employment({
                           aria-label={`Remove ${job.title}`}
                           className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-background transition hover:scale-105 hover:bg-danger hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-danger disabled:cursor-not-allowed disabled:opacity-50"
                           disabled={actionPending}
-                          onClick={() => setJobToRemove(job)}
+                          onClick={() => chooseJobToRemove(job)}
                           title={`Remove ${job.title}`}
                           type="button"
                         >
@@ -185,7 +192,7 @@ export function Employment({
         <ConfirmationDialog
           isPending={pendingAction?.type === "remove" && pendingAction.jobName === jobToRemove.jobName}
           jobTitle={jobToRemove.title}
-          onCancel={() => setJobToRemove(null)}
+          onCancel={() => chooseJobToRemove(null)}
           onConfirm={() => void confirmRemove()}
         />
       )}

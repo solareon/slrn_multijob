@@ -1,4 +1,5 @@
 export type Theme = "light" | "dark";
+export type AppMode = "development" | "phone" | "standalone";
 
 export interface Job {
   jobName: string;
@@ -15,4 +16,3 @@ export type PendingAction =
   | { type: "select"; jobName: string }
   | { type: "remove"; jobName: string }
   | null;
-

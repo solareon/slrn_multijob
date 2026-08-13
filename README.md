@@ -1,6 +1,13 @@
-# SLRN Multijob - App for LB-Phone
+# SLRN Multijob
 
-A simple lb-phone application to manage the native [qbx_core](https://github.com/qbox-project/qbx_core) multijob. It does not manage multigang, if you wish to do that then you will need to modify the script yourself.
+A simple application for managing native [qbx_core](https://github.com/qbox-project/qbx_core) multijob positions. It integrates with LB Phone when available and otherwise runs as a standalone framed app. It does not manage multigang.
+
+## Usage
+
+- With LB Phone running, open Employment from the phone.
+- Without LB Phone, use `/employment` or the `F6` keybind. Players can remap the keybind in FiveM settings.
+- Close the standalone app with its close button or `Escape`.
+- The standalone light/dark preference is saved locally for each client using resource KVP storage. Phone mode follows the LB Phone display theme.
 
 # [Red40 Development](https://red40.dev/scripts)
 Like this resource and want to support further development? Checkout my store [Red40 Development](https://red40.dev/scripts)
@@ -17,12 +24,12 @@ THe QB-Core version is currently here but will be merged eventually
 
 # Credits
 - [Randolio](https://github.com/Randolio/randol_multijob) for the multijob natives
-- [LB-Phone](https://github.com/lbphone/lb-phone-app-template) for the template apps
+- [LB-Phone](https://github.com/lbphone/lb-phone-app-template) for the optional phone integration and template foundation
 - [FuZZED105](https://github.com/FuZZED105/fzd_multijob) for the original app
 
 # Dependencies
 - [qbx_core](https://github.com/qbox-project/qbx_core) 1.7.0 or later
-- [lb-phone](https://lbphone.com/)
+- [lb-phone](https://lbphone.com/) (optional)
 - [ox_lib](https://github.com/overextended/ox_lib)
 
 # Copyright
